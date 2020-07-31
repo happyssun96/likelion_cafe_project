@@ -1,0 +1,19 @@
+{% extends 'layout/layout.html' %}
+{% block content %}
+
+<div class="card">
+    <div class="card-body">
+        <h1>자세한 게시물 페이지입니다</h1>
+        <h6><a href="{% url 'board_read' %}">목록으로 돌아가기</a></h6>
+    </div>
+  </div>
+  <div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <h3>{{ board.title }}</h3>
+      <h6>글쓴이: {{ board.author.username }}</h6>
+      <p class="card-text">{{ board.content }}</p>
+      <a href="{% url 'pre_update' board.pk %}" class="card-link">글 수정</a>
+      <a href="{% url 'delete' board.pk %}" class="card-link">삭제</a>
+    </div>
+  </div>
+{% endblock %}
